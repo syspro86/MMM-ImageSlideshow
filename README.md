@@ -53,23 +53,29 @@ The following properties can be configured:
 	<tbody>	
 		<tr>
 			<td><code>PathStyleText</code></td>
-			<td>A string of either 'nameonly' or 'fullpath'.<br>
-			<br>Where 'nameonly' displays only the image file name, where 'fullpath' shows the available image path and finel name</td>
+			<td>A string of either 'nameonly' or 'fullpath' to control the text content displayed.<br><br>
+			<br><b>Example:</b> <code>'nameonly'</code>
+			<br><b>Default value:</b> <code>'nameonly'</code><br>
+			<br>Where 'nameonly' displays only the image file name, where 'fullpath' shows the available image path and file name</td>
 		</tr>
 		<tr>
 			<td><code>ImgTitleTextPos</code></td>
-			<td>An integer value of 0 or 1<br>
-			<br>Where 0 places the text above the image, 1 places the text below the image </td>
+			<td>An integer value of 0 or 1 to control positioning of path/name text.<br><br>
+			<br><b>Example:</b> <code>0</code>
+			<br><b>Default value:</b> <code>0</code><br>
+			<br>Where 0 places the path/name text above the image, 1 places the path/name text below the image </td>
 		</tr>
 		<tr>
 			<td><code>ImgTitleTextStyle</code></td>
-			<td>A CSS text format string. See /home/pi/MagicMirror/css/main.css etc. Default value is 'bright small light'. </td>
+			<td>A CSS text format string. See /home/pi/MagicMirror/css/main.css etc. Default value is 'bright small light'.<br><br>
+			<br><b>Example:</b> <code>'bright medium light'</code>
+			<br><b>Default value:</b> <code>'bright small light'</code><br>
+			</td>
 		</tr>
-
 		<tr>
 			<td><code>imagePaths</code></td>
 			<td>Array value containing strings. Each string should be a path to a directory where image files can be found.<br>
-				<br><b>Example:</b> <code>['modules/MMM-ImageSlideshow/example1']</code>
+				<br><b>Example:</b> <code>['modules/MMM-ImageSlideshow/example1'],</code>
 				<br>This value is <b>REQUIRED</b>
 			</td>
 		</tr>		
