@@ -36,7 +36,7 @@ A different folder may be used by changing the path held in the config.js file s
 
 Note - Raspberry Pi focussed:
 e.g. the location on a raspbery pi is typically:
-/home/pi/config/config.js
+/home/pi/MagicMirror/config/config.js
 
 ## Configuration options
 
