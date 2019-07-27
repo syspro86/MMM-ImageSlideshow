@@ -25,7 +25,7 @@ modules: [
 		module: 'MMM-ImageSlideshow',
 		position: 'bottom_left',
 		config: {
-		        PathStyleText: "nameonly",           // display the file name only
+		        PathStyleText: 'nameonly',                              // display the file name only
 			imagePaths: ['modules/MMM-ImageSlideshow/example1'],
 		}
 	}	
