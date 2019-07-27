@@ -53,9 +53,9 @@ The following properties can be configured:
 	<tbody>	
 		<tr>
 			<td><code>PathStyleText</code></td>
-			<td>A string of either 'nameonly' or 'fullpath' to control the text content displayed.<br>
+			<td>A string of either 'none','nameonly' or 'fullpath' to control the text content displayed.<br>
 				<br><b>Example:</b> <code>'nameonly'</code>
-				<br><b>Default value:</b> <code>'nameonly'</code>
+				<br><b>Default value:</b> <code>'none'</code>
 				<br>This value is <b>OPTIONAL</b><br>
 			<br>Where 'nameonly' displays only the image file name, where 'fullpath' shows the available image path and file name</td>
 		</tr>
