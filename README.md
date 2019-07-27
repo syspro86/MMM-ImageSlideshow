@@ -56,6 +56,7 @@ The following properties can be configured:
 			<td>A string of either 'nameonly' or 'fullpath' to control the text content displayed.<br><br>
 			<br><b>Example:</b> <code>'nameonly'</code>
 			<br><b>Default value:</b> <code>'nameonly'</code><br>
+			<br>This value is <b>OPTIONAL</b><br>
 			<br>Where 'nameonly' displays only the image file name, where 'fullpath' shows the available image path and file name</td>
 		</tr>
 		<tr>
@@ -63,6 +64,7 @@ The following properties can be configured:
 			<td>An integer value of 0 or 1 to control positioning of path/name text.<br><br>
 			<br><b>Example:</b> <code>0</code>
 			<br><b>Default value:</b> <code>0</code><br>
+			<br>This value is <b>OPTIONAL</b><br>
 			<br>Where 0 places the path/name text above the image, 1 places the path/name text below the image </td>
 		</tr>
 		<tr>
@@ -70,6 +72,7 @@ The following properties can be configured:
 			<td>A CSS text format string. See /home/pi/MagicMirror/css/main.css etc. Default value is 'bright small light'.<br><br>
 			<br><b>Example:</b> <code>'bright medium light'</code>
 			<br><b>Default value:</b> <code>'bright small light'</code><br>
+			<br>This value is <b>OPTIONAL</b><br>
 			</td>
 		</tr>
 		<tr>
