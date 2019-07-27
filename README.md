@@ -13,19 +13,30 @@ Extra configurations include setting the amount of time an image is shown for, r
 
 
 ## Using the module
+Note - Raspberry Pi focussed:
+Use Git to download this extension to Magic Mirror. Make sure Git is installed on your system. In the command line/terminal, e.g. 'sudo apt install git'. Next, go to the modules directory of the your Magic Mirror e.g. 'cd /home/pi/MagicMirror/modules'. Run: 'git clone https://github.com/AdamMoses-GitHub/MMM-ImageSlideshow.git'.
 
-To use this module, add it to the modules array in the `config/config.js` file:
+The advantage of using Git is when there is an update, you can run 'git pull' and it will pull down all the updates. Magic Mirror can even let you know when there are updates.
+
+When installed, to use this module. Add it to the modules array in the `config/config.js` file:
 ````javascript
 modules: [
 	{
 		module: 'MMM-ImageSlideshow',
 		position: 'bottom_left',
 		config: {
-			imagePaths: ['modules/MMM-ImageSlideshow/example1']
+			imagePaths: ['modules/MMM-ImageSlideshow/example1'],
 		}
 	}	
 ]
 ````
+
+A different folder may be used by changing the path held in the config.js file shown above. If required change the array parameter on line imagePaths. e.g. imagePaths: ['modules/MMM-ImageSlideshow/myimages01', 'modules/MMM-ImageSlideshow/myimages02'],
+
+
+Note - Raspberry Pi focussed:
+e.g. the location on a raspbery pi is typically:
+/home/pi/config/config.js
 
 ## Configuration options
 
@@ -40,6 +51,21 @@ The following properties can be configured:
 		</tr>
 	<thead>
 	<tbody>	
+		<tr>
+			<td><code>PathStyleText</code></td>
+			<td>A string of either 'nameonly' or 'fullpath'.<br>
+			<br>Where 'nameonly' displays only the image file name, where 'fullpath' shows the available image path and finel name</td>
+		</tr>
+		<tr>
+			<td><code>ImgTitleTextPos</code></td>
+			<td>An integer value of 0 or 1<br>
+			<br>Where 0 places the text above the image, 1 places the text below the image </td>
+		</tr>
+		<tr>
+			<td><code>ImgTitleTextStyle</code></td>
+			<td>A CSS text format string. See /home/pi/MagicMirror/css/main.css etc. Default value is 'bright small light'. </td>
+		</tr>
+
 		<tr>
 			<td><code>imagePaths</code></td>
 			<td>Array value containing strings. Each string should be a path to a directory where image files can be found.<br>
