@@ -12,13 +12,13 @@
  * MIT Licensed.
  *
  * Modified by:  OneOfTheInfiniteMonkeys
- * Date: 27 Jul 2019 17:55
+ * Date: 27 Jul 2019 18:05
  */
  
 Module.register("MMM-ImageSlideshow", {
 	// Default module config.
 	defaults: {
-	// Style of the path string to be displayed - "nameonly" or "fullpath or "none" - default ="nameonly"
+	// Style of the path string to be displayed - "nameonly" or "fullpath or "none" - default ="none"
 	PathStyleText : "none",
         // position of text 0 = top, 1 = bottom - all other values ignored - default = 0
         ImgTitleTextPos: 0,
@@ -145,11 +145,11 @@ Module.register("MMM-ImageSlideshow", {
 					// if config path style parameter is set "none", "nameonly" or "fullpath" - Note in effect only "nameonly" is verified in this version
 					if (this.config.PathStyleText == "nameonly") {
 						// in case image name only
-						MMImgTitleText.innerHTML = encodeURI(this.imageList[this.imageIndex]).substr(encodeURI(this.imageList[this.imageIndex]).lastIndexOf('/') + 1, encodeURI(this.imageList[this.imageIndex]).length - encodeURI(this.imageList[this.imageIndex]).lastIndexOf('/') ) ;
+						 MMImgTitleText.innerHTML = this.imageList[this.imageIndex].substr(this.imageList[this.imageIndex].lastIndexOf('/') + 1, this.imageList[this.imageIndex].length - this.imageList[this.imageIndex].lastIndexOf('/') );
 					  }
 					else {
 						// in case path and image name - note relative path as per MM-ImageSlideshow specifications
-						MMImgTitleText.innerHTML = encodeURI(this.imageList[this.imageIndex]);
+						MMImgTitleText.innerHTML = this.imageList[this.imageIndex];
 					  }
 			
 					// if config position is set to 0 i.e. top then show path and name above image - Note - in effect only 0 is verified in this version
@@ -170,6 +170,8 @@ Module.register("MMM-ImageSlideshow", {
 						styleString += 'width:' + this.config.fixedImageWidth + 'px;';
 					if (this.config.fixedImageHeight != 0)
 						styleString += 'height:' + this.config.fixedImageHeight + 'px;';
+
+					
 					// if style string has antyhing, set it
 					if (styleString != '')
 						image.style = styleString;
