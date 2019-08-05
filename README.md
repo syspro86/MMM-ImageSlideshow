@@ -54,19 +54,19 @@ The following properties can be configured:
 	<tbody>	
 		<tr>
 			<td><code>PathStyleText</code></td>
-			<td>A string of either 'none','nameonly' or 'fullpath' to control the text content displayed.<br>
+			<td>A string of either 'none', 'nameonly' or 'fullpath' to control the image path/name text content displayed.<br>
 				<br><b>Example:</b> <code>'nameonly'</code>
 				<br><b>Default value:</b> <code>'none'</code>
 				<br>This value is <b>OPTIONAL</b><br>
-			<br>Where 'nameonly' displays only the image file name, where 'fullpath' shows the available image path and file name</td>
+			<br>Where 'nameonly' displays only the image file name, alternatively 'fullpath' shows the available image path and file name</td>
 		</tr>
 		<tr>
 			<td><code>ImgTitleTextPos</code></td>
-			<td>An integer value of 0 or 1 to control positioning of path/name text.<br>
+			<td>An integer value of 0 or 1 to control positioning of image path/name text.<br>
 				<br><b>Example:</b> <code>0</code>
 				<br><b>Default value:</b> <code>0</code>
 				<br>This value is <b>OPTIONAL</b><br>
-			<br>Where 0 places the path/name text above the image, 1 places the path/name text below the image </td>
+			<br>Where 0 places the image path/name text above the image, 1 places the image path/name text below the image </td>
 		</tr>
 		<tr>
 			<td><code>ImgTitleTextStyle</code></td>
