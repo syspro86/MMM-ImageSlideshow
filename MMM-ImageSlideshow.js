@@ -12,18 +12,20 @@
  * MIT Licensed.
  *
  * Modified by:  OneOfTheInfiniteMonkeys
- * Date: 27 Jul 2019 18:05
+ * Date: 21 Aug 2019 23:00
  */
  
 Module.register("MMM-ImageSlideshow", {
 	// Default module config.
 	defaults: {
+	// An image style string
+	imageStyleString: '',
 	// Style of the path string to be displayed - "nameonly" or "fullpath or "none" - default ="none"
-	PathStyleText : "none",
+	pathStyleText : "none",
         // position of text 0 = top, 1 = bottom - all other values ignored - default = 0
-        ImgTitleTextPos: 0,
+        imgTitleTextPos: 0,
 	// format of image name text as per HTML definition - default = "bright small light", 
-	ImgTitleTextStyle: "bright small light",
+	imgTitleTextStyle: 'bright small light',
         // an array of strings, each is a path to a directory with images
         imagePaths: ['modules/MMM-ImageSlideshow/exampleImages'],
         // the speed at which to switch between images, in millisecondsy
@@ -139,21 +141,24 @@ Module.register("MMM-ImageSlideshow", {
 				}
 				if (showSomething) {
 					// create text of image name that will be displayed from the stored list of image names held in array this.imageList[]
-					var MMImgTitleText = document.createElement("div");
-					// set text style from the parameter that might be passed to the routine
-					MMImgTitleText.className = "MM-ImageSlideshow-title " + this.config.ImgTitleTextStyle;
-					// if config path style parameter is set "none", "nameonly" or "fullpath" - Note in effect only "nameonly" is verified in this version
-					if (this.config.PathStyleText == "nameonly") {
+					var MMImgTitleText = document.createElement('div');
+
+					// if config path style parameter is set "none", "nameonly" or "fullpath"
+					// create a style entry
+					var MMImgText = '';
+					if (this.config.pathStyleText == 'nameonly') {
 						// in case image name only
-						 MMImgTitleText.innerHTML = this.imageList[this.imageIndex].substr(this.imageList[this.imageIndex].lastIndexOf('/') + 1, this.imageList[this.imageIndex].length - this.imageList[this.imageIndex].lastIndexOf('/') );
+						 MMImgText = this.imageList[this.imageIndex].substr(this.imageList[this.imageIndex].lastIndexOf('/') + 1, this.imageList[this.imageIndex].length - this.imageList[this.imageIndex].lastIndexOf('/') );
 					  }
 					else {
 						// in case path and image name - note relative path as per MM-ImageSlideshow specifications
-						MMImgTitleText.innerHTML = this.imageList[this.imageIndex];
+						MMImgText = this.imageList[this.imageIndex];
 					  }
-			
+					MMImgTitleText.innerHTML = MMImgText;  // Add the text, either name only or full path
+
+
 					// if config position is set to 0 i.e. top then show path and name above image - Note - in effect only 0 is verified in this version
-                                        if ( (this.config.PathStyleText != "none") & (this.config.ImgTitleTextPos == 0) ){
+                                        if ( (this.config.pathStyleText != "none") & (this.config.imgTitleTextPos == 0) ) {
  						wrapper.appendChild(MMImgTitleText);
 					  }
 
@@ -161,6 +166,8 @@ Module.register("MMM-ImageSlideshow", {
 					// create the image dom bit
 					var image = document.createElement("img");
 					// if set to make grayscale, flag the class set in the .css file
+
+
 					if (this.config.makeImagesGrayscale)
 						image.className = "desaturate";
 					// create an empty string
@@ -171,18 +178,22 @@ Module.register("MMM-ImageSlideshow", {
 					if (this.config.fixedImageHeight != 0)
 						styleString += 'height:' + this.config.fixedImageHeight + 'px;';
 
-					
-					// if style string has antyhing, set it
-					if (styleString != '')
-						image.style = styleString;
+					// Add image style to the img so that control of scale might be acheived e.g. 'object-fit: scale-down; width: 800px; height: 900px; ' will limit images to max 800 wide or 900 high
+                                        // recomended object-fit differs from fixedImageWidth as such controlled images can end up extending undesirably where only one dimension is fixed. Where both are fixed, images may be distorted
+					// object-fit assumes a minimum level or HTML5 browser support  Chrome 31, IE/Edge 16, Firefox 36, Safari 7.1, Opera 19
+					// This parameter is not recomended for use with fixedImageWidth or fixedImageHeight
+					if (this.config.imageStyleString != '')                 // If the supplied parameter is not empty then add it to the HTML - Note no syntax checking is performed on the supplied string parameter
+ 						image.style = this.config.imageStyleString; // add a style element to the img object
+
 					// set the image location
 					image.src = encodeURI(this.imageList[this.imageIndex]);
+
 					// add the image to the dom
-					wrapper.appendChild(image);
+  						wrapper.appendChild(image);
 					
 
 					// if config position is set to non 0 i.e. bottom, then show path and or name text below image, as determined previously
-                                        if ( (this.config.PathStyleText != "none") & (this.config.ImgTitleTextPos != 0) ) {
+                                        if ( (this.config.pathStyleText != "none") & (this.config.imgTitleTextPos != 0) ) {
  						wrapper.appendChild(MMImgTitleText);
 					}
 					
