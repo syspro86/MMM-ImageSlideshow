@@ -25,6 +25,7 @@ modules: [
 		module: 'MMM-ImageSlideshow',
 		position: 'bottom_left',
 		config: {
+			imageStyleString: "object-fit: scale-down; width: 800px; height: 900px;", //best image scaling within sizes
 		        PathStyleText: 'nameonly',                         // display the image file name only
 			imagePaths: ['modules/MMM-ImageSlideshow/example1'],
 		}
@@ -52,6 +53,16 @@ The following properties can be configured:
 		</tr>
 	<thead>
 	<tbody>	
+		<tr>
+			<td><code>imageStyleString</code></td>
+			<td>A CSS string which is applied to the image.to be displayed.<br>
+				<br><b>Example:</b> <code>'imageStyleString: "object-fit: scale-down; width: 800px; height: 900px;",'</code>
+				<br><b>Default value:</b> <code>Empty string (no effect)</code>
+				<br>This value is <b>OPTIONAL</b><br>
+			<br>Where '"object-fit: scale-down;' causes an image to scale within the defined dimensions
+			<br>and width: 800px; height: 900px;", defines the size in px that the image will be fitted within, without distortion.
+			<br>See CSS https://www.w3schools.com/css/css3_object-fit.asp for examples</td>
+		</tr>
 		<tr>
 			<td><code>PathStyleText</code></td>
 			<td>A string of either 'none', 'nameonly' or 'fullpath' to control the image path/name text content displayed.<br>
