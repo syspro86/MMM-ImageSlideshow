@@ -55,7 +55,7 @@ The following properties can be configured:
 	<tbody>	
 		<tr>
 			<td><code>imageStyleString</code></td>
-			<td>A CSS string which is applied to the image.to be displayed.<br>
+			<td>A CSS string which is applied to the image to be displayed.<br>
 				<br><b>Example:</b> <code>'imageStyleString: "object-fit: scale-down; width: 800px; height: 900px;",'</code>
 				<br><b>Default value:</b> <code>Empty string (no effect)</code>
 				<br>This value is <b>OPTIONAL</b><br>
