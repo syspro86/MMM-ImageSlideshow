@@ -3,7 +3,7 @@ The `MMM-ImageSlideshow` module is designed to display images, one at a time on 
 
 This fork has additional 'switches' offering alternate control over the displayed image.<br>
 Notably:
-- The image name and path can be display<br>
+- The image name and path can be displayed.<br>
 - The image can be scaled down to fit within a region, whilst maintaining image aspect ratio (aka - best image size for display region).
 
 ## Dependencies / Requirements
