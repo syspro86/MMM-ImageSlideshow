@@ -1,5 +1,5 @@
 # Module: Image Slideshow
-The `MMM-ImageSlideshow` module is designed to display images, one at a time on a fixed interval, from one or many directories. These images can be shown in order or at random, one directory at a time or all at time. The image heights and widths can be fixed, and the images can be made to be shown in grayscale.
+The `MMM-ImageSlideshow` module is designed to display images, one at a time on a fixed interval, from one or many directories. These images can be shown in order or at random, one directory at a time or all at time. The image heights and widths can be fixed or scaled and the images can be made to be shown in grayscale.
 
 This fork has additional 'switches' offering alternate control over the displayed image.<br>
 Notably:
@@ -8,7 +8,7 @@ Notably:
 
 ## Dependencies / Requirements
 
-This module requires no special dependencies. The only requirement is that the image directories you path to are fixed paths accessible to the Magic Mirror instance.
+This module requires no special dependencies. The only requirement is that the image directories path are fixed paths accessible to the Magic Mirror instance.
 
 ## Operation
 
@@ -23,22 +23,22 @@ Use Git to download this extension to Magic Mirror. Make sure Git is installed o
 
 The advantage of using Git is when there is an update, you can run 'git pull' and it will pull down all the updates. Magic Mirror can even let you know when there are updates.
 
-When installed, to use this module. Add it to the modules array in the `config/config.js` file:
+When installed, to use this module. Add it to the modules array in the `config/config.js` file (RASPI path is /home/pi/MagicMirror/config/config.js) :
 ````javascript
 modules: [
 	{
 		module: 'MMM-ImageSlideshow',
-		position: 'bottom_left',
+		position: 'middle_center',
 		config: {
-			imageStyleString: "object-fit: scale-down; width: 800px; height: 900px;", //best image scaling within sizes
-		        PathStyleText: 'nameonly',                         // display the image file name only
-			imagePaths: ['modules/MMM-ImageSlideshow/example1'],
+			imageStyleString: "object-fit: scale-down; width: 800px; height: 900px;", // best image scaling within sizes
+		        PathStyleText: 'nameonly',                                                // display the image file name only
+			imagePaths: ['modules/MMM-ImageSlideshow/exampleImages'],                 // relative path to image files
 		}
 	}	
 ]
 ````
 
-A different folder may be used by changing the path held in the config.js file shown above. If required change the array parameter on line imagePaths. e.g. imagePaths: ['modules/MMM-ImageSlideshow/myimages01', 'modules/MMM-ImageSlideshow/myimages02'],
+A different folder may be used by changing the path held in the config.js file shown above. If required change the array parameter on line imagePaths. e.g. imagePaths: ['modules/MMM-ImageSlideshow/myimages01', 'modules/MMM-ImageSlideshow/myimages02']
 
 
 Note - Raspberry Pi focussed:
