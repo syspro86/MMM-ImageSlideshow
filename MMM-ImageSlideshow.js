@@ -12,7 +12,9 @@
  * MIT Licensed.
  *
  * Modified by:  OneOfTheInfiniteMonkeys
- * Date: 21 Aug 2019 23:00
+ * Date: 31 OCt 2019 21:00
+ * Adds additional text display options
+
  */
  
 Module.register("MMM-ImageSlideshow", {
@@ -146,14 +148,38 @@ Module.register("MMM-ImageSlideshow", {
 					// if config path style parameter is set "none", "nameonly" or "fullpath"
 					// create a style entry
 					var MMImgText = '';
-					if (this.config.pathStyleText == 'nameonly') {
-						// in case image name only
-						 MMImgText = this.imageList[this.imageIndex].substr(this.imageList[this.imageIndex].lastIndexOf('/') + 1, this.imageList[this.imageIndex].length - this.imageList[this.imageIndex].lastIndexOf('/') );
-					  }
-					else {
-						// in case path and image name - note relative path as per MM-ImageSlideshow specifications
-						MMImgText = this.imageList[this.imageIndex];
-					  }
+					// select format for the path text to be displayed
+                                        switch(this.config.pathStyleText) {
+                                          case 'none' :  
+					    MMImgText = '';
+                                            break;
+                                          case 'nameonly':
+					    // in case image - Name only - no file extension (or at least up to first full stop character
+					    MMImgText = this.imageList[this.imageIndex].substr(this.imageList[this.imageIndex].lastIndexOf('/') + 1, this.imageList[this.imageIndex].lastIndexOf('.') - this.imageList[this.imageIndex].lastIndexOf('/') );
+                                            break;
+                                          case 'fullname':
+					    // in this case - Name and file extension
+                                            MMImgText = this.imageList[this.imageIndex].substr(this.imageList[this.imageIndex].lastIndexOf('/') + 1, this.imageList[this.imageIndex].length - this.imageList[this.imageIndex].lastIndexOf('/') );
+                                            break;
+                                          case 'fullpath':
+                                            // in this case - Path and image name - note relative path as per MM-ImageSlideshow specifications
+                                            MMImgText = this.imageList[this.imageIndex];
+                                            break;
+                                          case 'index':
+                                            // in this case - The array index number of this image in the list of displayed images
+					    MMImgText = (this.imageIndex + 1).toString();
+                                            break;
+                                          case 'indexandtotal':
+                                            // in this case - The array index number of this image in the list of displayed images and the total number of images
+					    MMImgText = (this.imageIndex + 1).toString() + ' of ' + this.imageList.length.toString();
+                                            break;
+                                          default:
+                                            // the case - show a line for incorrect setting or no setting
+					    MMImgText = '-';
+                                            break;
+					}
+
+					
 					MMImgTitleText.innerHTML = MMImgText;  // Add the text, either name only or full path
 
 
