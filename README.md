@@ -70,7 +70,8 @@ The following properties can be configured:
 		</tr>
 		<tr>
 			<td><code>PathStyleText</code></td>
-			<td>A string of either 'none', 'nameonly' or 'fullpath' to control the image path/name text content displayed.<br>
+			<td>A string of either 'none', 'nameonly', 'fullname, 'fullpath', 'index', 'indexonly' or 'indexandtotal'
+ to control the image path/name text content displayed.<br>
 				<br><b>Example:</b> <code>'nameonly'</code>
 				<br><b>Default value:</b> <code>'none'</code>
 				<br>This value is <b>OPTIONAL</b><br>
