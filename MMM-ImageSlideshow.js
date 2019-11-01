@@ -155,7 +155,7 @@ Module.register("MMM-ImageSlideshow", {
                                             break;
                                           case 'nameonly':
 					    // in case image - Name only - no file extension (or at least up to first full stop character
-					    MMImgText = this.imageList[this.imageIndex].substr(this.imageList[this.imageIndex].lastIndexOf('/') + 1, this.imageList[this.imageIndex].lastIndexOf('.') - this.imageList[this.imageIndex].lastIndexOf('/') );
+					    MMImgText = this.imageList[this.imageIndex].substr(this.imageList[this.imageIndex].lastIndexOf('/') + 1, this.imageList[this.imageIndex].lastIndexOf('.') - 1 - this.imageList[this.imageIndex].lastIndexOf('/') );
                                             break;
                                           case 'fullname':
 					    // in this case - Name and file extension
