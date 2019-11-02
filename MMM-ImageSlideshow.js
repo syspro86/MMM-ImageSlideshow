@@ -155,7 +155,15 @@ Module.register("MMM-ImageSlideshow", {
                                             break;
                                           case 'nameonly':
 					    // in case image - Name only - no file extension (or at least up to first full stop character
-					    MMImgText = this.imageList[this.imageIndex].substr(this.imageList[this.imageIndex].lastIndexOf('/') + 1, this.imageList[this.imageIndex].lastIndexOf('.') - 1 - this.imageList[this.imageIndex].lastIndexOf('/') );
+					    MMImgText = this.imageList[this.imageIndex].substr(this.imageList[this.imageIndex].lastIndexOf('/') + 1, this.imageList[this.imageIndex].lastIndexOf('.') -1 - this.imageList[this.imageIndex].lastIndexOf('/') );
+                                            break;
+                                          case 'nameonlyandindex':
+					    // in case image - Name only - no file extension (or at least up to first full stop character) and index number
+					    MMImgText = this.imageList[this.imageIndex].substr(this.imageList[this.imageIndex].lastIndexOf('/') + 1, this.imageList[this.imageIndex].lastIndexOf('.') -1 - this.imageList[this.imageIndex].lastIndexOf('/') ) + ' ' + (this.imageIndex + 1).toString();
+                                            break;
+                                          case 'nameonlyindexandtotal':
+					    // in case image - Name only - no file extension (or at least up to first full stop character) and index number
+					    MMImgText = this.imageList[this.imageIndex].substr(this.imageList[this.imageIndex].lastIndexOf('/') + 1, this.imageList[this.imageIndex].lastIndexOf('.') -1 - this.imageList[this.imageIndex].lastIndexOf('/') ) + ' ' + (this.imageIndex + 1).toString() + ' of ' + this.imageList.length.toString();
                                             break;
                                           case 'fullname':
 					    // in this case - Name and file extension
