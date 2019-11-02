@@ -3,8 +3,8 @@ The `MMM-ImageSlideshow` module is designed to display images, one at a time on 
 
 This fork has additional 'switches' offering alternate control over the displayed image.<br>
 Notably:
-- The image name and path can be displayed.<br>
-- The image can be scaled down to fit within a region, whilst maintaining image aspect ratio (aka - best image size for display region).
+- The image name and path can be displayed<br>
+- The image can be scaled down to fit within a region, whilst maintaining image aspect ratio (aka - best image size for display region)
 
 ## Dependencies / Requirements
 
@@ -70,12 +70,23 @@ The following properties can be configured:
 		</tr>
 		<tr>
 			<td><code>PathStyleText</code></td>
-			<td>A string of either 'none', 'nameonly', 'fullname, 'fullpath', 'index', 'indexonly' or 'indexandtotal'
+			<td>A string of either 'none', 'nameonly', 'nameonlyandindex','nameonlyindexandtotal', 'fullname', 'fullpath', 'index' or 'indexandtotal'
  to control the image path/name text content displayed.<br>
 				<br><b>Example:</b> <code>'nameonly'</code>
 				<br><b>Default value:</b> <code>'none'</code>
 				<br>This value is <b>OPTIONAL</b><br>
-			<br>Where 'nameonly' displays only the image file name, alternatively 'fullpath' shows the available image path and file name</td>
+				<br>The following are options for this parameter:
+	<table>
+		<tr><td>'none'</td><td>No text is displayed</td></tr>
+		<tr><td>'nameonly'</td><td>Image name (no text following . character)</td></tr>
+		<tr><td>'nameonlyandindex'</td><td>Shows image name and image index number</td></tr>
+		<tr><td>'nameonlyindexandtotal'</td><td>Shows image name and total number of images</td></tr>
+		<tr><td>'fullname'</td><td>Shows image name with file extension</td></tr>
+		<tr><td>'fullpath'</td><td>Shows full image path and image name</td></tr>
+		<tr><td>'index'</td><td>Shows image index</td></tr>
+		<tr><td>'indexandtotal'</td><td>Shows image index and total number of images</td></tr>
+	</table>
+			</td>
 		</tr>
 		<tr>
 			<td><code>ImgTitleTextPos</code></td>
