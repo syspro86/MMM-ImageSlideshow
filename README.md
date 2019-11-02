@@ -38,7 +38,7 @@ modules: [
 ]
 ````
 
-A different image folder may be used by changing the path entry under the entry imagePaths, held in the config.js file shown above. If required change the array parameter on the line containing the imagePaths entry. e.g. imagePaths: ['modules/MMM-ImageSlideshow/myimages01', 'modules/MMM-ImageSlideshow/myimages02']
+A different image folder may be used by changing the path entry under the entry imagePaths, held in the config.js file shown above. If required change the array parameter on the line containing the imagePaths entry. e.g. imagePaths: ['modules/MMM-ImageSlideshow/myimages01', 'modules/MMM-ImageSlideshow/myimages02']. Hint: take care to use the correct punctuation and number of tabs in the config.js file.
 
 
 Note - Raspberry Pi focussed:
