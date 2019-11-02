@@ -23,7 +23,7 @@ Use Git to download this extension to Magic Mirror. Make sure Git is installed o
 
 The advantage of using Git is when there is an update, you can run 'git pull' and it will pull down all the updates. Magic Mirror can even let you know when there are updates.
 
-When installed, to use this module. Add it to the modules array in the `config/config.js` file (RASPI path is /home/pi/MagicMirror/config/config.js) :
+When installed, to use this module you need to add an entry to the modules array in the `config/config.js` file. (RASPI path is /home/pi/MagicMirror/config/config.js) :
 ````javascript
 modules: [
 	{
@@ -38,7 +38,7 @@ modules: [
 ]
 ````
 
-A different folder may be used by changing the path held in the config.js file shown above. If required change the array parameter on line imagePaths. e.g. imagePaths: ['modules/MMM-ImageSlideshow/myimages01', 'modules/MMM-ImageSlideshow/myimages02']
+A different image folder may be used by changing the path entry under the entry imagePaths, held in the config.js file shown above. If required change the array parameter on the line containing the imagePaths entry. e.g. imagePaths: ['modules/MMM-ImageSlideshow/myimages01', 'modules/MMM-ImageSlideshow/myimages02']
 
 
 Note - Raspberry Pi focussed:
