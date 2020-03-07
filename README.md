@@ -1,6 +1,6 @@
 # Module: Image Slideshow
 [![GitHub Release](https://img.shields.io/github/v/release/OneOfTheInfiniteMonkeys/MMM-ImageSlideshow?include_prereleases)](https://github.com/OneOfTheInfiniteMonkeys/MMM-ImageSlideshow/releases)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/OneOfTheInfiniteMonkeys/MMM-ImageSlideshow/blob/master/LICENSE)
 <img src="https://img.shields.io/static/v1?label=Javascript&message=99%&color=blue"> 
 <img src="https://img.shields.io/static/v1?label=CSS&message=1%&color=blue">
  
