@@ -1,8 +1,8 @@
 # Module: Image Slideshow
-[![GitHub Release](https://img.shields.io/github/v/release/OneOfTheInfiniteMonkeys/MMM-ImageSlideshow?include_prereleases)](https://github.com/OneOfTheInfiniteMonkeys/MMM-ImageSlideshow/releases)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/OneOfTheInfiniteMonkeys/MMM-ImageSlideshow/blob/master/LICENSE)
-<a href="https://en.wikipedia.org/wiki/JavaScript"><img src="https://img.shields.io/static/v1?label=Javascript&message=99%&color=blue"> </a>
-<a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets"><img src="https://img.shields.io/static/v1?label=CSS&message=1%&color=blue"></a>
+[![GitHub Release](https://img.shields.io/github/v/release/OneOfTheInfiniteMonkeys/MMM-ImageSlideshow?include_prereleases&style=flat-square)](https://github.com/OneOfTheInfiniteMonkeys/MMM-ImageSlideshow/releases)
+[![License: MIT](https://img.shields.io/github/license/OneOfTheInfiniteMonkeys/MMM-ImageSlideshow?style=flat-square)](https://github.com/OneOfTheInfiniteMonkeys/MMM-ImageSlideshow/blob/master/LICENSE)
+<a href="https://en.wikipedia.org/wiki/JavaScript"><img src="https://img.shields.io/static/v1?label=Javascript&message=99%&color=blue&style=flat-square"> </a>
+<a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets"><img src="https://img.shields.io/static/v1?label=CSS&message=1%&color=blue&style=flat-square"></a>
  
 The `MMM-ImageSlideshow` module is designed to display images, one at a time on a fixed interval, from one or many directories. These images can be shown in order or at random, one directory at a time or all at time. The image heights and widths can be fixed or scaled and the images can be made to be shown in grayscale.
 
