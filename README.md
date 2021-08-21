@@ -1,8 +1,4 @@
 # Module: Image Slideshow
-[![GitHub Release](https://img.shields.io/github/v/release/OneOfTheInfiniteMonkeys/MMM-ImageSlideshow?include_prereleases&style=flat-square)](https://github.com/OneOfTheInfiniteMonkeys/MMM-ImageSlideshow/releases)
-[![License: MIT](https://img.shields.io/github/license/OneOfTheInfiniteMonkeys/MMM-ImageSlideshow?style=flat-square)](https://github.com/OneOfTheInfiniteMonkeys/MMM-ImageSlideshow/blob/master/LICENSE)
-<a href="https://en.wikipedia.org/wiki/JavaScript"><img src="https://img.shields.io/static/v1?label=Javascript&message=99%&color=blue&style=flat-square"> </a>
-<a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets"><img src="https://img.shields.io/static/v1?label=CSS&message=1%&color=blue&style=flat-square"></a>
  
 The `MMM-ImageSlideshow` module is designed to display images, one at a time on a fixed interval, from one or many directories. These images can be shown in order or at random, one directory at a time or all at time. The image heights and widths can be fixed or scaled and the images can be made to be shown in grayscale.
 
@@ -10,6 +6,13 @@ This fork has additional 'switches' offering alternate control over the displaye
 Notably:
 - The image name and path can be displayed<br>
 - The image can be scaled down to fit within a region, whilst maintaining image aspect ratio (aka - best image size for display region)
+
+[![GitHub Release](https://img.shields.io/github/v/release/OneOfTheInfiniteMonkeys/MMM-ImageSlideshow?include_prereleases&style=flat-square)](https://github.com/OneOfTheInfiniteMonkeys/MMM-ImageSlideshow/releases)
+[![License: MIT](https://img.shields.io/github/license/OneOfTheInfiniteMonkeys/MMM-ImageSlideshow?style=flat-square)](https://github.com/OneOfTheInfiniteMonkeys/MMM-ImageSlideshow/blob/master/LICENSE)
+<a href="https://en.wikipedia.org/wiki/JavaScript"><img src="https://img.shields.io/static/v1?label=Javascript&message=99%&color=blue&style=flat-square"> </a>
+<a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets"><img src="https://img.shields.io/static/v1?label=CSS&message=1%&color=blue&style=flat-square"></a>
+![GitHub repo size](https://img.shields.io/github/repo-size/OneOfTheInfiniteMonkeys/MMM-ImageSlideshow?style=flat-square)
+![Raspberry Pi](https://img.shields.io/badge/gadget-Raspberry%20Pi-C51A4A.svg?logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMTIgMTIgNDAgNDAiPjxwYXRoIGZpbGw9IiMzMzMzMzMiIGQ9Ik0zMiwxMy40Yy0xMC41LDAtMTksOC41LTE5LDE5YzAsOC40LDUuNSwxNS41LDEzLDE4YzEsMC4yLDEuMy0wLjQsMS4zLTAuOWMwLTAuNSwwLTEuNywwLTMuMiBjLTUuMywxLjEtNi40LTIuNi02LjQtMi42QzIwLDQxLjYsMTguOCw0MSwxOC44LDQxYy0xLjctMS4yLDAuMS0xLjEsMC4xLTEuMWMxLjksMC4xLDIuOSwyLDIuOSwyYzEuNywyLjksNC41LDIuMSw1LjUsMS42IGMwLjItMS4yLDAuNy0yLjEsMS4yLTIuNmMtNC4yLTAuNS04LjctMi4xLTguNy05LjRjMC0yLjEsMC43LTMuNywyLTUuMWMtMC4yLTAuNS0wLjgtMi40LDAuMi01YzAsMCwxLjYtMC41LDUuMiwyIGMxLjUtMC40LDMuMS0wLjcsNC44LTAuN2MxLjYsMCwzLjMsMC4yLDQuNywwLjdjMy42LTIuNCw1LjItMiw1LjItMmMxLDIuNiwwLjQsNC42LDAuMiw1YzEuMiwxLjMsMiwzLDIsNS4xYzAsNy4zLTQuNSw4LjktOC43LDkuNCBjMC43LDAuNiwxLjMsMS43LDEuMywzLjVjMCwyLjYsMCw0LjYsMCw1LjJjMCwwLjUsMC40LDEuMSwxLjMsMC45YzcuNS0yLjYsMTMtOS43LDEzLTE4LjFDNTEsMjEuOSw0Mi41LDEzLjQsMzIsMTMuNHoiLz48L3N2Zz4%3D)
 
 ## Dependencies / Requirements
 
