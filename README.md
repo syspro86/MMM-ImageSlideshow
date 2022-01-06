@@ -27,7 +27,15 @@ Extra configurations include setting the amount of time an image is shown for, r
 
 ## Using the module
 Note - Raspberry Pi focussed:
-Use Git to download this extension to Magic Mirror. Make sure Git is installed on your system. In the command line/terminal, e.g. 'sudo apt install git'. Next, go to the modules directory of the your Magic Mirror e.g. 'cd /home/pi/MagicMirror/modules'. Run: git clone https://github.com/AdamMoses-GitHub/MMM-ImageSlideshow.git (master repository) or git clone https://github.com/OneOfTheInfiniteMonkeys/MMM-ImageSlideshow.git (for this repository)'.
+Use Git to download this extension to Magic Mirror. Make sure Git is installed on your system.  
+In the command line/terminal, e.g.  
+  sudo apt install git  
+  
+Next, go to the modules directory of the your Magic Mirror e.g.  
+  cd /home/pi/MagicMirror/modules
+  
+Run (for this repository):  
+  git clone https://github.com/OneOfTheInfiniteMonkeys/MMM-ImageSlideshow.git  
 
 The advantage of using Git is when there is an update, you can run 'git pull' and it will pull down all the updates. Magic Mirror can even let you know when there are updates.
 
@@ -46,7 +54,9 @@ modules: [
 ]
 ````
 
-A different image folder may be used by changing the path entry under the entry imagePaths, held in the config.js file shown above. If required change the array parameter on the line containing the imagePaths entry. e.g. imagePaths: ['modules/MMM-ImageSlideshow/myimages01', 'modules/MMM-ImageSlideshow/myimages02']. Hint: take care to use the correct punctuation and number of tabs in the config.js file.
+A different image folder may be used by changing the path entry under the entry <strong>imagePaths</strong>, held in the config.js file (excerpt shown above). If required change the array parameter on the line containing the imagePaths entry.  
+e.g. imagePaths: ['modules/MMM-ImageSlideshow/myimages01', 'modules/MMM-ImageSlideshow/myimages02'].  
+<strong>Hint</strong>: take care to use the correct punctuation and number of tabs in the config.js file.
 
 
 Note - Raspberry Pi focussed:
