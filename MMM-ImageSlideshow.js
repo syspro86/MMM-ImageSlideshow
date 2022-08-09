@@ -91,155 +91,134 @@ Module.register("MMM-ImageSlideshow", {
                 if (this.imageList.length > 0) {
                     this.loaded = true;
                     this.updateDom();
-					// set the timer schedule to the slideshow speed			
-					var self = this;
-					this.interval = setInterval(function() {
-						self.updateDom();
-						}, this.config.slideshowSpeed);					
                 }
 			}
 		}
     },    
 	// Override dom generator.
 	getDom: function () {
+		if (this.interval) {
+			clearInterval(this.interval);
+		}
 		var wrapper = document.createElement("div");
         // if an error, say so (currently no errors can occur)
         if (this.errorMessage != null) {
             wrapper.innerHTML = this.errorMessage;
+			return wrapper;
         }
-        // if no errors
-        else {
-            // if the image list has been loaded
-            if (this.loaded === true) {
-				// if was delayed until restart, reset index reset timer
-				if (this.imageIndex == -2) {
-					this.imageIndex = -1;
-					clearInterval(this.interval);
-					var self = this;
-					this.interval = setInterval(function() {
-						self.updateDom(0);
-						}, this.config.slideshowSpeed);						
-				}				
-                // iterate the image list index
-                this.imageIndex += 1;
-				// set flag to show stuff
-				var showSomething = true;
-                // if exceeded the size of the list, go back to zero
-                if (this.imageIndex == this.imageList.length) {
-					// if delay after last image, set to wait
-					if (this.config.delayUntilRestart > 0) {
-						this.imageIndex = -2;
-						wrapper.innerHTML = "&nbsp;";
-						showSomething = false;
-						clearInterval(this.interval);
-						var self = this;
-						this.interval = setInterval(function() {
-							self.updateDom(0);
-							}, this.config.delayUntilRestart);									
-					}
-					// if not reset index
-					else
-						this.imageIndex = 0;
-				}
-				if (showSomething) {
-					// create text of image name that will be displayed from the stored list of image names held in array this.imageList[]
-					var MMImgTitleText = document.createElement('div');
+		// if the image list has not been loaded
+		if (!this.loaded) {
+			// if no data loaded yet, empty html
+			wrapper.innerHTML = "&nbsp;";
+			return wrapper;
+		}
 
-					// if config path style parameter is set "none", "nameonly" or "fullpath"
-					// create a style entry
-					var MMImgText = '';
-					// select format for the path text to be displayed
-                                        switch(this.config.pathStyleText) {
-                                          case 'none' :  
-					    MMImgText = '';
-                                            break;
-                                          case 'nameonly':
-					    // in case image - Name only - no file extension (or at least up to first full stop character
-					    MMImgText = this.imageList[this.imageIndex].substr(this.imageList[this.imageIndex].lastIndexOf('/') + 1, this.imageList[this.imageIndex].lastIndexOf('.') -1 - this.imageList[this.imageIndex].lastIndexOf('/') );
-                                            break;
-                                          case 'nameonlyandindex':
-					    // in case image - Name only - no file extension (or at least up to first full stop character) and index number
-					    MMImgText = this.imageList[this.imageIndex].substr(this.imageList[this.imageIndex].lastIndexOf('/') + 1, this.imageList[this.imageIndex].lastIndexOf('.') -1 - this.imageList[this.imageIndex].lastIndexOf('/') ) + ' ' + (this.imageIndex + 1).toString();
-                                            break;
-                                          case 'nameonlyindexandtotal':
-					    // in case image - Name only - no file extension (or at least up to first full stop character) and index number
-					    MMImgText = this.imageList[this.imageIndex].substr(this.imageList[this.imageIndex].lastIndexOf('/') + 1, this.imageList[this.imageIndex].lastIndexOf('.') -1 - this.imageList[this.imageIndex].lastIndexOf('/') ) + ' ' + (this.imageIndex + 1).toString() + ' of ' + this.imageList.length.toString();
-                                            break;
-                                          case 'fullname':
-					    // in this case - Name and file extension
-                                            MMImgText = this.imageList[this.imageIndex].substr(this.imageList[this.imageIndex].lastIndexOf('/') + 1, this.imageList[this.imageIndex].length - this.imageList[this.imageIndex].lastIndexOf('/') );
-                                            break;
-                                          case 'fullpath':
-                                            // in this case - Path and image name - note relative path as per MM-ImageSlideshow specifications
-                                            MMImgText = this.imageList[this.imageIndex];
-                                            break;
-                                          case 'index':
-                                            // in this case - The array index number of this image in the list of displayed images
-					    MMImgText = (this.imageIndex + 1).toString();
-                                            break;
-                                          case 'indexandtotal':
-                                            // in this case - The array index number of this image in the list of displayed images and the total number of images
-					    MMImgText = (this.imageIndex + 1).toString() + ' of ' + this.imageList.length.toString();
-                                            break;
-                                          default:
-                                            // the case - show a line for incorrect setting or no setting
-					    MMImgText = '-';
-                                            break;
-					}
+		// iterate the image list index
+		this.imageIndex += 1;
+		// if exceeded the size of the list, go back to zero
+		if (this.imageIndex == this.imageList.length) {
+			// if delay after last image, set to wait
+			if (this.config.delayUntilRestart > 0) {
+				this.imageIndex = -1;
+				wrapper.innerHTML = "&nbsp;";
+				this.interval = setTimeout(function() {
+					self.updateDom(0);
+				}, this.config.delayUntilRestart);						
+				return wrapper;
+			}
+			// if not reset index
+			else
+				this.imageIndex = 0;
+		}
 
-					
-					MMImgTitleText.innerHTML = MMImgText;  // Add the text, either name only or full path
+		// create text of image name that will be displayed from the stored list of image names held in array this.imageList[]
+		var MMImgTitleText = document.createElement('div');
 
+		// if config path style parameter is set "none", "nameonly" or "fullpath"
+		// create a style entry
+		var MMImgText = '';
+		// select format for the path text to be displayed
+							switch(this.config.pathStyleText) {
+								case 'none' :  
+			MMImgText = '';
+								break;
+								case 'nameonly':
+			// in case image - Name only - no file extension (or at least up to first full stop character
+			MMImgText = this.imageList[this.imageIndex].substr(this.imageList[this.imageIndex].lastIndexOf('/') + 1, this.imageList[this.imageIndex].lastIndexOf('.') -1 - this.imageList[this.imageIndex].lastIndexOf('/') );
+								break;
+								case 'nameonlyandindex':
+			// in case image - Name only - no file extension (or at least up to first full stop character) and index number
+			MMImgText = this.imageList[this.imageIndex].substr(this.imageList[this.imageIndex].lastIndexOf('/') + 1, this.imageList[this.imageIndex].lastIndexOf('.') -1 - this.imageList[this.imageIndex].lastIndexOf('/') ) + ' ' + (this.imageIndex + 1).toString();
+								break;
+								case 'nameonlyindexandtotal':
+			// in case image - Name only - no file extension (or at least up to first full stop character) and index number
+			MMImgText = this.imageList[this.imageIndex].substr(this.imageList[this.imageIndex].lastIndexOf('/') + 1, this.imageList[this.imageIndex].lastIndexOf('.') -1 - this.imageList[this.imageIndex].lastIndexOf('/') ) + ' ' + (this.imageIndex + 1).toString() + ' of ' + this.imageList.length.toString();
+								break;
+								case 'fullname':
+			// in this case - Name and file extension
+								MMImgText = this.imageList[this.imageIndex].substr(this.imageList[this.imageIndex].lastIndexOf('/') + 1, this.imageList[this.imageIndex].length - this.imageList[this.imageIndex].lastIndexOf('/') );
+								break;
+								case 'fullpath':
+								// in this case - Path and image name - note relative path as per MM-ImageSlideshow specifications
+								MMImgText = this.imageList[this.imageIndex];
+								break;
+								case 'index':
+								// in this case - The array index number of this image in the list of displayed images
+			MMImgText = (this.imageIndex + 1).toString();
+								break;
+								case 'indexandtotal':
+								// in this case - The array index number of this image in the list of displayed images and the total number of images
+			MMImgText = (this.imageIndex + 1).toString() + ' of ' + this.imageList.length.toString();
+								break;
+								default:
+								// the case - show a line for incorrect setting or no setting
+			MMImgText = '-';
+								break;
+		}
 
-					// if config position is set to 0 i.e. top then show path and name above image - Note - in effect only 0 is verified in this version
-                                        if ( (this.config.pathStyleText != "none") & (this.config.imgTitleTextPos == 0) ) {
- 						wrapper.appendChild(MMImgTitleText);
-					  }
+		MMImgTitleText.innerHTML = MMImgText;  // Add the text, either name only or full path
 
+		// if config position is set to 0 i.e. top then show path and name above image - Note - in effect only 0 is verified in this version
+		if ( (this.config.pathStyleText != "none") & (this.config.imgTitleTextPos == 0) ) {
+			wrapper.appendChild(MMImgTitleText);
+		}
 
-					// create the image dom bit
-					var image = document.createElement("img");
-					// if set to make grayscale, flag the class set in the .css file
+		// create the image dom bit
+		var image = document.createElement("img");
+		// if set to make grayscale, flag the class set in the .css file
 
+		if (this.config.makeImagesGrayscale)
+			image.className = "desaturate";
+		// create an empty string
+		var styleString = '';
+		// if width or height or non-zero, add them to the style string
+		if (this.config.fixedImageWidth != 0)
+			styleString += 'width:' + this.config.fixedImageWidth + 'px;';
+		if (this.config.fixedImageHeight != 0)
+			styleString += 'height:' + this.config.fixedImageHeight + 'px;';
 
-					if (this.config.makeImagesGrayscale)
-						image.className = "desaturate";
-					// create an empty string
-					var styleString = '';
-					// if width or height or non-zero, add them to the style string
-					if (this.config.fixedImageWidth != 0)
-						styleString += 'width:' + this.config.fixedImageWidth + 'px;';
-					if (this.config.fixedImageHeight != 0)
-						styleString += 'height:' + this.config.fixedImageHeight + 'px;';
+		// Add image style to the img so that control of scale might be acheived e.g. 'object-fit: scale-down; width: 800px; height: 900px; ' will limit images to max 800 wide or 900 high
+							// recomended object-fit differs from fixedImageWidth as such controlled images can end up extending undesirably where only one dimension is fixed. Where both are fixed, images may be distorted
+		// object-fit assumes a minimum level or HTML5 browser support  Chrome 31, IE/Edge 16, Firefox 36, Safari 7.1, Opera 19
+		// This parameter is not recomended for use with fixedImageWidth or fixedImageHeight
+		if (this.config.imageStyleString != '')                 // If the supplied parameter is not empty then add it to the HTML - Note no syntax checking is performed on the supplied string parameter
+			image.style = this.config.imageStyleString; // add a style element to the img object
 
-					// Add image style to the img so that control of scale might be acheived e.g. 'object-fit: scale-down; width: 800px; height: 900px; ' will limit images to max 800 wide or 900 high
-                                        // recomended object-fit differs from fixedImageWidth as such controlled images can end up extending undesirably where only one dimension is fixed. Where both are fixed, images may be distorted
-					// object-fit assumes a minimum level or HTML5 browser support  Chrome 31, IE/Edge 16, Firefox 36, Safari 7.1, Opera 19
-					// This parameter is not recomended for use with fixedImageWidth or fixedImageHeight
-					if (this.config.imageStyleString != '')                 // If the supplied parameter is not empty then add it to the HTML - Note no syntax checking is performed on the supplied string parameter
- 						image.style = this.config.imageStyleString; // add a style element to the img object
+		// set the image location
+		image.src = encodeURI(this.imageList[this.imageIndex]);
 
-					// set the image location
-					image.src = encodeURI(this.imageList[this.imageIndex]);
+		// add the image to the dom
+		wrapper.appendChild(image);
+		
+		// if config position is set to non 0 i.e. bottom, then show path and or name text below image, as determined previously
+		if ( (this.config.pathStyleText != "none") & (this.config.imgTitleTextPos != 0) ) {
+			wrapper.appendChild(MMImgTitleText);
+		}
 
-					// add the image to the dom
-  						wrapper.appendChild(image);
-					
-
-					// if config position is set to non 0 i.e. bottom, then show path and or name text below image, as determined previously
-                                        if ( (this.config.pathStyleText != "none") & (this.config.imgTitleTextPos != 0) ) {
- 						wrapper.appendChild(MMImgTitleText);
-					}
-					
-
-				}
-            }
-            else {
-                // if no data loaded yet, empty html
-                wrapper.innerHTML = "&nbsp;";
-            }
-        }
-        // return the dom
+		var self = this;
+		this.interval = setTimeout(function() {
+			self.updateDom(0);
+		}, this.config.slideshowSpeed);						
 		return wrapper;
 	}
 });
